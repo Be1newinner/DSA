@@ -1,4 +1,7 @@
-### Core Data Structures to Master
+## Core Data Structures to Master
+
+### 1. Linear DS
+
 1. **Arrays/Lists**
    - Operations: Traversal, Insertion, Deletion, Rotation
    - Sliding Window, Two-pointer techniques
@@ -24,28 +27,37 @@
    - Collision handling techniques
    - Use cases: Subarray with given sum, Group anagrams
 
-6. **Trees**
+
+### 2. Non Linear DS
+
+1. **Trees**
    - Binary Trees, Binary Search Trees (BSTs)
    - Tree Traversals: In-order, Pre-order, Post-order
    - Advanced: Trie, Segment Tree, Fenwick Tree
 
-7. **Heaps**
+2. **Heaps**
    - Min-Heap and Max-Heap (Priority Queues)
    - Applications: Median of Data Stream, Top K Elements
 
-8. **Graphs**
+3. **Graphs**
    - Representations: Adjacency Matrix/List
    - Traversals: BFS, DFS
    - Algorithms: Dijkstra’s, Kruskal’s, Prim’s, Topological Sorting
 
-9. **Dynamic Programming**
+4. **Trie (Prefix Tree)**
+
+5. **Disjoint Set (Union-Find)**
+
+---
+
+### **Dynamic Programming**
    - Basic patterns: Knapsack, LCS, LIS
    - Advanced: Matrix Chain Multiplication, DP on Trees
 
-10. **Miscellaneous**
-    - Bit Manipulation
-    - Union-Find (Disjoint Set)
-    - Sliding Window and Two-pointer algorithms
+### **Miscellaneous**
+   - Bit Manipulation
+   - Union-Find (Disjoint Set)
+   - Sliding Window and Two-pointer algorithms
 
 ---
 
