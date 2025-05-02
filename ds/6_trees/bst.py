@@ -40,48 +40,38 @@ class BST:
             else:
                 self.right = BST(data)
                 
-    def inorder(self):
-        def _inorder(root: BST):
-            if root:
-                _inorder(root.left)
-                print(root.val)
-                _inorder(root.right)
-        return _inorder(self.root)
+    def inorder(self:BST):
+        def _inorder(node: BST):
+            if node:
+                _inorder(node.left)
+                print(node.data)
+                _inorder(node.right)
+        return _inorder(self)
     
-    def preorder(self):
-        def _preorder(root: BST):
-            if not root:
+    def preorder(self: BST):
+        def _preorder(node: BST):
+            if not node:
                 return
-            print(root.val)
-            _preorder(root.left)
-            _preorder(root.right)
-        return _preorder(self.root)
+            print(node.data)
+            _preorder(node.left)
+            _preorder(node.right)
+        return _preorder(self)
     
-    def search(self, val):
-        def _search(node: BST, val):
+    def search(self: BST, data:int):
+        def _search(node: BST, data: int):
             if not node:
                 return False
-            if val == node.val:
+            if data == node.data:
                 return True
-            elif val < node.val:
-                return  _search(node.left, val)
+            elif data < node.data:
+                return  _search(node.left, data)
             else:
-                return _search(node.right, val)
-        return _search(self.root, val)
+                return _search(node.right, data)
+        return _search(self, data)
     
-    def delete(self, val):
-        def _delete(node: BST, val):
-            if not node:
-                return False
-            
-            if val == node.val:
-                temp = node.val
-                val.next
-            
-            return node
-            
-        self.root = _delete(self.root, val)
-        
+    def delete(self: BST, data: int):
+        pass
+                    
 bst = BST(21)
 bst.insert(2)
 bst.insert(4)
@@ -93,6 +83,6 @@ bst.insert(23)
 bst.insert(5)
 print("INSERT ENDS!")
 
-# bst.inorder()
+bst.inorder()
 
 # print(bst.search(23))
