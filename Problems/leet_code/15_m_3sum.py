@@ -39,51 +39,84 @@
 
 # Answers
 
-# if builtin sort not allowed 
+# if builtin sort not allowed
 # def sort_list(self, ls: List[int]):
 #     if ls[0] == ls[1] == ls[2]:
 #         return
-    
+
 #     if ls[0] > ls[1]:
 #         ls[0], ls[1] = ls[1], ls[0]
 
 #     if ls[1] > ls[2]:
 #         ls[1], ls[2] = ls[2], ls[1]
-        
+
 #     if ls[0] > ls[1]:
 #         ls[0], ls[1] = ls[1], ls[0]
- 
- 
+
 
 from typing import List
 
+
+# [1,2,3,4,5,6]
+# 1, 2, 3
+# 2, 3, 4
+# 3, 4, 5
+# 4, 5, 6
+
+# class Solution:
+#     def threeSum(self, nums: List[int]) -> List[List[int]]:
+#         nums.sort()
+#         result_set = set()
+#         nums_len = len(nums)
+
+#         for i in range(nums_len - 2):
+#             for j in range(i + 1, nums_len - 1):
+#                 for k in range(j + 1, nums_len):
+#                     if nums[i] + nums[j] + nums[k] == 0:
+#                         scored_list = sorted([nums[i], nums[j], nums[k]])
+#                         result_set.add(tuple(scored_list))
+#         return [list(x) for x in list(result_set)]
+
+L1 + L2,
+
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        result_list = []
-        
-        for i in range(len(nums) - 1):
-            for j in range(1, len(nums) - 1):
-                for k in range(2, len(nums) - 1):
-                    if i == j or j == k or i == k:
-                        continue
+        nums.sort()
+        result_set = set()
+        nums_len = len(nums)
+
+        for i in range(nums_len - 2):
+            for j in range(i + 1, nums_len - 1):
+                for k in range(j + 1, nums_len):
                     if nums[i] + nums[j] + nums[k] == 0:
                         scored_list = sorted([nums[i], nums[j], nums[k]])
-                        if result_list.count(scored_list) == 0:
-                            result_list.append(scored_list)
-                        continue
-        return result_list
+                        result_set.add(tuple(scored_list))
+        return [list(x) for x in list(result_set)]
+
+data = [
+    {"in": [-1, 0, 1, 2, -1, -4], "out": [[-1, -1, 2], [-1, 0, 1]]},
+    {"in": [0, 1, 1], "out": []},
+    {"in": [0, 0, 0], "out": [[0, 0, 0]]},
+    {"in": [-1, 0, 1], "out": [[-1, 0, 1]]},
+    {"in": [1, -1, -1, 0], "out": [[-1, 0, 1]]},
+]
 
 
-input1 = [-1, 0, 1, 2, -1, -4]
-# output [[-1,-1,2],[-1,0,1]]
+def is_list_same(list1, list2):
+    return sorted([sorted(sublist) for sublist in list1]) == sorted(
+        [sorted(sublist) for sublist in list2]
+    )
 
-input2 = [0, 1, 1]
-# Output: []
-
-input3 = [0, 0, 0]
-# Output: [[0,0,0]]
 
 sol = Solution()
-print(sol.threeSum(input1))
-print(sol.threeSum(input2))
-print(sol.threeSum(input3))
+
+cleared = 0
+
+for x in data:
+    res = sol.threeSum(x["in"])
+    if not is_list_same(res, x["out"]):
+        print(x["in"], " => ", x["out"], " => ", res)
+    else:
+        cleared += 1
+
+print(f"{cleared}/{len(data)} tests cleared")
