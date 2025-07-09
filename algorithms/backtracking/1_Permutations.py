@@ -1,36 +1,38 @@
 from typing import List
 
 
-def find_all_permutations(nums: List[int]) -> List[List[int]]:
+def find_all_permutations(original_list: List[str]) -> List[List[str]]:
     result_list = []
-    current_permutation = []
-    used = [False] * len(nums)  # Initialize a boolean array to track used numbers
+    current_list = []
+    used_list = [False] * len(
+        original_list
+    )  # Initialize a boolean array to track used numbers
 
-    def backtrack(current_permutation_arg, nums_arg, used_arg, result_list_arg):
+    def backtrack(original_list, current_list, used_list, result_list):
         # Base Case: If the current permutation is complete
-        if len(current_permutation_arg) == len(nums_arg):
-            result_list_arg.append(list(current_permutation_arg))  # Add a copy!
+        if len(current_list) == len(original_list):
+            result_list.append(list(current_list))  # Add a copy!
             return
 
         # Iterate through all possible choices
-        for i in range(len(nums_arg)):
+        for i in range(len(original_list)):
             # If the number at index i hasn't been used yet
-            if not used_arg[i]:
+            if not used_list[i]:
                 # 1. Make a choice
-                current_permutation_arg.append(nums_arg[i])
-                used_arg[i] = True
+                current_list.append(original_list[i])
+                used_list[i] = True
 
                 # 2. Recurse (explore further)
-                backtrack(current_permutation_arg, nums_arg, used_arg, result_list_arg)
+                backtrack(original_list, current_list, used_list, result_list)
 
                 # 3. Unmake the choice (Backtrack)
-                used_arg[i] = False
-                current_permutation_arg.pop()
+                used_list[i] = False
+                current_list.pop()
 
     # Initial call to start the backtracking process
-    backtrack(current_permutation, nums, used, result_list)
+    backtrack(original_list, current_list, used_list, result_list)
     return result_list
 
 
-ls1 = [1, 2, 4]
+ls1 = ["A", "B", "C"]
 print(find_all_permutations(ls1))

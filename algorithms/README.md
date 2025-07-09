@@ -23,14 +23,32 @@
                 * `Sliding Window Maximum` (often uses a deque/monotonic queue)
                 * `Longest Repeating Character Replacement`
         3.  **Kadane's Algorithm:**
+            
             * *Examples:* Maximum Subarray Sum.
+            
             * *Why it's important:* Classic dynamic programming (DP) problem, often a stepping stone to more complex DP. Shows the idea of optimal substructure.
+            
             * *5 Most Asked Questions (Medium to Hard):*
-                * `Maximum Subarray`
-                * `Maximum Product Subarray`
-                * `Circular Subarray Sum`
-                * `Maximum Sum Circular Subarray`
-                * `Maximum Subarray Sum with One Deletion`
+                * a. `Maximum Subarray`
+                https://leetcode.com/problems/maximum-subarray/
+                This is a fundamental problem often solved with Kadane's algorithm. Think about how a local maximum contributes to a global maximum.
+
+                * b. `Maximum Product Subarray`
+                https://leetcode.com/problems/maximum-product-subarray/
+
+                This is a step up from Maximum Subarray. Why is tracking both maximum and minimum products necessary here? Consider the effect of negative numbers.
+
+                * c. `Circular Subarray Sum`
+                https://leetcode.com/problems/maximum-sum-circular-subarray/
+
+                Note that "Circular Subarray Sum" is typically referring to "Maximum Sum Circular Subarray" in the context of common LeetCode problems. This one is particularly interesting because it combines the standard Maximum Subarray problem with a twist. 
+
+                * d. `Maximum Sum Circular Subarray`
+                https://leetcode.com/problems/maximum-subarray-sum-with-one-deletion/
+
+                This problem introduces another dimension to the classic Maximum Subarray. How does the "one deletion" constraint change your DP state or approach? Could you maintain information about subarrays ending at the current point, both with and without a deletion?
+
+                * e. `Maximum Subarray Sum with One Deletion`
         4.  **Prefix Sums / Suffix Sums:**
             * *Examples:* Range sum queries, subarray sum equals K, equilibrium index.
             * *Why it's important:* Pre-computation allows $O(1)$ query time after an $O(N)$ pre-processing step, crucial for problems with many range queries.
